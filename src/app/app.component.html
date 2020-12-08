@@ -1,0 +1,80 @@
+<div class="jumbotron">
+  <div class="ReactiveForm">
+
+    <h1>Employee Signup Form</h1>
+    
+    <form [formGroup] ="EmployeeSignupForm" >
+
+      <div class="form-group">
+        <label for="empid">Employee ID</label>
+        <input class="form-control" type="text" id="empid" formControlName="employeeid" />
+        <div class="alert alert-danger" *ngIf="f.employeeid.touched && f.employeeid.invalid">Enter valid Employee ID</div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" id="name" formControlName="name" />
+        <div class="alert alert-danger" *ngIf="f.name.touched && f.name.invalid">Enter valid Employee name</div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input class="form-control" type="text" id="address" formControlName="address" />
+        <div class="alert alert-danger" *ngIf="f.address.touched && f.address.invalid">Enter valid Address</div>
+      </div>
+
+      <div class="form-group">
+        <label  for="phno">Phone Number</label>
+        <input class="form-control" type="text" id="phno" formControlName="phonenumber" />
+        <div class="alert alert-danger" *ngIf="EmployeeSignupForm.controls['phonenumber'].hasError('minlength') || EmployeeSignupForm.controls['phonenumber'].hasError('maxlength')">Phone number must be 10 characters long</div>
+
+      </div>
+
+      <div class="alert alert-danger" class="form-group" *ngIf="EmployeeSignupForm.valid then enablebtn else disablebtn">
+      </div>
+
+      <ng-template #enablebtn>
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </ng-template>
+      <ng-template #disablebtn> 
+        <button class="btn btn-primary" disabled="true" >Submit</button>
+      </ng-template>
+
+      &nbsp; &nbsp;
+
+      <div class="form-group" *ngIf="EmployeeSignupForm.valid then enableresetbtn else disableresetbtn">
+      </div>
+      
+      <ng-template #enableresetbtn>
+        <button class="btn btn-primary" (click)="onReset()" >Reset</button>
+      </ng-template>
+      <ng-template #disableresetbtn> 
+        <button class="btn btn-primary" disabled="true" >Reset</button>
+      </ng-template>
+
+      &nbsp; &nbsp;
+
+      <div class="form-group" *ngIf="EmployeeSignupForm.valid then enablepatchbtn else disablepatchbtn">
+      </div>
+      
+      <ng-template #enablepatchbtn>
+        <button class="btn btn-primary" (click)="onPatch()" >Patch</button>
+      </ng-template>
+      <ng-template #disablepatchbtn> 
+        <button class="btn btn-primary" disabled="true" >Patch</button> 
+      </ng-template>
+
+
+
+    </form>
+    <br>
+  <div>
+</div>
+
+<!-- <div class="samplediv">
+  <h4>{{EmployeeSignupForm.value.employeeid}}</h4>
+  <h4>{{EmployeeSignupForm.value.name}}</h4>
+  <h4>{{EmployeeSignupForm.value.address}}</h4>
+  <h4>{{EmployeeSignupForm.value.phonenumber}}</h4>
+</div> -->
