@@ -6,3 +6,9 @@ label{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-style: italic;
 }
+
+.samplediv
+{
+  text-align: center;
+  background-image: linear-gradient(yellow,violet);
+}

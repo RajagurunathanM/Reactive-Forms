@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   
   employeeList:Employee[]=[]; 
 
-  employee = new Employee('101','Rajaguru','Peelamedu','9999999999');
+  employee:Employee; // = new Employee('101','Rajaguru','Peelamedu','9999999999');
 
   ngOnInit(): void 
   {
@@ -25,12 +25,12 @@ export class AppComponent implements OnInit {
       'phonenumber':new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     });
     
-    this.EmployeeSignupForm.setValue({
-      'employeeid':this.employee.employeeid,
-      'name':this.employee.name,
-      'address':this.employee.address,
-      'phonenumber':this.employee.phonenumber
-    });
+    // this.EmployeeSignupForm.setValue({
+    //   'employeeid':this.employee.employeeid,
+    //   'name':this.employee.name,
+    //   'address':this.employee.address,
+    //   'phonenumber':this.employee.phonenumber
+    // });
 
   }
 
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
 
   onReset()
   {
-    //this.employee = new Employee('101','Raja','Peelamedu','9999999999');
+    this.employee = new Employee('101','Raja','Peelamedu','9999999999');
     this.EmployeeSignupForm.setValue({
       'employeeid':this.employee.employeeid,
       'name':this.employee.name,
