@@ -34,8 +34,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  onSubmit()
+  onSubmit() 
   {
+    
     const {employeeid,name,address,phonenumber} = this.EmployeeSignupForm.value;
     this.employeeList.push(
       new Employee(employeeid,name,address,phonenumber)
